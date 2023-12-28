@@ -1,0 +1,4 @@
+<p>todo-child works!</p>
+<h4>{{item}}  {{name}}</h4>
+<input type="text" placeholder="Enter your Name" #nameData>
+<button (click)="updateNameEvent.emit(nameData.value)">Update Name</button>

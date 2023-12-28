@@ -1,0 +1,12 @@
+<h1>Welcome {{name | uppercase }} </h1>
+<h3 [style.color]="dynamic_color" >{{test}} -> {{num}}</h3>
+<app-todo-child [item]="num" [name]="test" (updateNameEvent)="updateName($event)"></app-todo-child>
+<br><br><hr>
+<h2>Test two way binding by writing something in below box</h2>
+<!-- Two way binding -->
+<input type="text"  [(ngModel)]="newName">
+<h1>{{newName}}</h1>
+
+Today is : {{date | date : 'fullDate'}}
+<br><br>
+{{num | usdConvert: 100}}
