@@ -1,0 +1,61 @@
+<h1>Angular Demo</h1>
+<!-- Baisc If condition -->
+<h2 *ngIf="visible; then ifVisible else ifNotVisible" >Angular Tutorials</h2>
+
+<!-- If, else statements -->
+<ng-template #ifVisible>
+    <h1> Code is visible!</h1>
+</ng-template>
+
+<ng-template #ifNotVisible>
+    <h1> Code is not visible!</h1>
+</ng-template>
+
+<!-- Else if statements -->
+
+<ng-template [ngIf]="color==='red'">
+    <h1> Red </h1>
+</ng-template>
+<ng-template [ngIf]="color==='blue'">
+    <h1> Blue </h1>
+</ng-template>
+<ng-template [ngIf]="color==='green'">
+    <h1> Green </h1>
+</ng-template>
+<hr>
+<h1>Swtich Case</h1>
+<div [ngSwitch]="switchColor">
+    <h4 *ngSwitchCase="'red'">Red Color</h4>
+    <h4 *ngSwitchCase="'green'">Green Color</h4>
+    <h4 *ngSwitchCase="'orange'">Orange Color</h4>
+    <h4 *ngSwitchCase="'blue'">Blue Color</h4>
+    <h4 *ngSwitchCase="'yellow'">Yellow Color</h4>
+    <h4 *ngSwitchDefault>Unknown color</h4>
+</div>
+<hr>
+
+<h1>For Loop</h1>
+<div *ngFor="let name of userNames">
+    <h2>{{name}}</h2>
+</div>
+<hr>
+<h1>Nested For Loop</h1>
+<div *ngFor="let name of userDetails | keyvalue">
+    <h2 [style.color]="headingColor" [style.text-decoration]="textDecorate">{{name.key}} -> {{name.value.age}}</h2>
+    <ul *ngFor="let account of name.value.Account">{{account}}</ul>
+</div>
+<button (click)="changeColor()">Change color</button>
+<hr>
+<h2>Forms</h2>
+<form #userForm = "ngForm" (ngSubmit)="getFormData(userForm.value)">
+    <input type="text" name="Name" ngModel placeholder="Enter Name">
+    <br><br>
+    <input type="text" ngModel name="Email" placeholder="Enter Email">
+    <br><br>
+    <button>Submit Form</button>
+</form>
+<h3>Form Data</h3>
+<li>{{userData.Name}}</li>
+<li>{{userData.Email}}</li>
+<router-outlet></router-outlet>
+
