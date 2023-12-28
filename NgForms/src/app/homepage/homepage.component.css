@@ -1,0 +1,16 @@
+.headingH2{
+    font-size: 7rem;
+    font-family: monospace;
+}
+.body{
+    margin: 80px;
+}
+.heading{
+    text-align: center;
+}
+.actions{
+    text-align: center;
+}
+.actionBtn{
+    margin: 10px;
+}

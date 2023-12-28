@@ -1,0 +1,17 @@
+.formdiv{
+    margin: 75px;
+    width: 45rem;
+    margin-left: 36rem;
+}
+input.ng-invalid.ng-touched{
+border:1px solid red !important;
+}
+small{
+color: red;
+font-weight: bold;
+}
+.errorMsg{
+    color: red;
+    font-weight: bold;
+}
+
