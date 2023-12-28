@@ -1,0 +1,9 @@
+<div class="container">
+  <input type="text" #inputext>
+  <button (click)="onSubmit(inputext)">Submit</button>
+  <app-demo [value]="inputString" *ngIf="destroy">
+    <h2>This is projected content {{ inputString }}</h2>
+  </app-demo>
+  <button (click)="destroyComponent()">Destory</button>
+  </div>
+<router-outlet></router-outlet>
