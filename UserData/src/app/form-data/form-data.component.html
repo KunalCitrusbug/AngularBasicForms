@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Step Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form [formGroup]="Step1Form" (ngSubmit)="SubmitStep1Form()" *ngIf="currentStep === 1">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="name" placeholder="Name" formControlName="name">
+                <span class="errorMsg" *ngIf="name && name.invalid && name.touched">Enter valid Name!</span>
+
+            </div>
+            <div class="form-group">
+                <button class="btn" type="submit" [disabled]="!Step1Form.valid" (click)="nextStep()" >Next</button>
+            </div>
+        </form>
+        <form [formGroup]="Step2Form" (ngSubmit)="SubmitStep2Form()" *ngIf="currentStep === 2">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required formControlName="email">
+                <span class="errorMsg" *ngIf="email && email.invalid && email.touched">Enter valid Email!</span>
+
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn" (click)="prevStep()">Prev</button>
+                <button type="submit" class="btn" [disabled]="!Step2Form.valid">Next</button>
+            </div>
+        </form>
+        <form [formGroup]="Step3Form" (ngSubmit)="SubmitStep3Form()" *ngIf="currentStep === 3">
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" formControlName="gender">
+                    <option value="" disabled>Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="errorMsg" *ngIf="gender && gender.invalid && gender.touched">Please select any one gender!</span>
+
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn" (click)="prevStep()">Prev</button>
+                <button type="submit" class="btn" [disabled]="!Step3Form.valid">Next</button>
+            </div>
+        </form>
+        <form [formGroup]="Step4Form" (ngSubmit)="SubmitStep4Form()" *ngIf="currentStep === 4" >
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required formControlName="age">
+            <span class="errorMsg" *ngIf="age && age.invalid && age.touched">Please enter valid age!</span>
+
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+                <button type="button" class="btn" (click)="prevStep()">Prev</button>
+            </div>
+        </form>
+    </div>
+   
+</body>

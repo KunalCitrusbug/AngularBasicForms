@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList | keyvalue ; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ user.value.name }}</td>
+                    <td>{{ user.value.email }}</td>
+                    <td>{{ user.value.gender }}</td>
+                    <td>{{ user.value.age }}</td>
+                    <td><button class="btn btn-danger" (click)="deleteUser(user.key)">Delete User</button></td>
+                  </tr>
+                <!-- Add more user rows here -->
+            </tbody>
+        </table>
+        <button class="btn btn-success" type="button" style="margin-top: 20px;" routerLink="/add-user">Add New User</button>
+    </div>
+</body>
+</html>
