@@ -1,12 +1,19 @@
+// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormDataComponent } from './form-data/form-data.component';
+import { Step1Component } from './step1/step1.component';
+import { Step2Component } from './step2/step2.component';
+import { Step3Component } from './step3/step3.component';
+import { Step4Component } from './step4/step4.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
-  { path: 'add-user', component: FormDataComponent },
+  { path: 'step1', component: Step1Component },
+  { path: 'step2', component: Step2Component },
+  { path: 'step3', component: Step3Component },
+  { path: 'step4', component: Step4Component },
   { path: 'user-list', component: UserListComponent },
-  {path:"",  redirectTo:'add-user', pathMatch:"full"}
+  { path: '', redirectTo: '/step1', pathMatch: 'full' }, // Redirect to step1 by default
 ];
 
 @NgModule({
