@@ -27,7 +27,8 @@ import { Step4Component } from './step4/step4.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

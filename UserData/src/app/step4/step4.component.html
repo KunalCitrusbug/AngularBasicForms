@@ -46,16 +46,17 @@
         <form [formGroup]="Step4Form" (ngSubmit)="onSubmit()">
 
             <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" name="age" required formControlName="age">
-            <span class="errorMsg" *ngIf="age && age.invalid && age.touched">Please enter valid age!</span>
-
+              <label for="birthDate">Date of Birth</label>
+              <input type="date" id="birthDate" name="birthDate" required formControlName="birthDate">
+              <span class="errorMsg" *ngIf="birthDate && birthDate.invalid && birthDate.touched">Please enter a valid date!</span>
             </div>
+          
             <div class="form-group">
-                <button type="submit" [disabled]="!Step4Form.valid">Submit</button>
-                <button type="button" class="btn" (click)="prevStep()">Prev</button>
+              <button type="submit" [disabled]="!Step4Form.valid">Submit</button>
+              <button type="button" class="btn" (click)="prevStep()">Prev</button>
             </div>
-        </form>
+          
+          </form>
     </div>
    
 </body>
